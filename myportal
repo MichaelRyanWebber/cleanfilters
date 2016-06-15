@@ -1,0 +1,2676 @@
+{
+  "ASDF": {
+    "label": "asdf",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "*",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "dynamics0/contact/ACCOUNT_ID"
+      }
+    ]
+  },
+  "TOPIC": {
+    "sources": [
+      {
+        "source": "dynamics0/lead/SUBJECT",
+        "defaultValue": "none"
+      }
+    ],
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "fieldMatch": true,
+    "label": "Topic",
+    "defaultValue": "",
+    "agent": [
+      "hubspot0",
+      "zoho1",
+      "dynamics0"
+    ],
+    "dataType": [
+      "*",
+      "*",
+      "*"
+    ],
+    "field": "TOPIC",
+    "op": [
+      "not:empty",
+      "not:empty",
+      "not:empty"
+    ],
+    "value": ""
+  },
+  "DEPARTMENT": {
+    "label": "Department",
+    "sources": [
+      {
+        "source": "dynamics0/contact/DEPARTMENT",
+        "priority": 4200
+      },
+      {
+        "source": "zoho1/contact/DEPARTMENT",
+        "priority": 4000
+      }
+    ],
+    "id": "DEPARTMENT",
+    "field": "DEPARTMENT",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    },
+    "mapping": {
+      "updatedAt": "2016-05-06T19:02:17.000Z",
+      "_customer": "572a08f7c0e46d0503de7cdc",
+      "type": "Contact",
+      "title": "Contact Mapping",
+      "priority": 3,
+      "status": {
+        "updatedAt": "2016-05-06T19:02:17.754Z",
+        "title": "Active",
+        "id": "active"
+      },
+      "rels": {
+        "Owner": {
+          "rel": "Owner",
+          "sources": [
+            {
+              "source": "hubspot0/contact/owner"
+            },
+            {
+              "source": "zoho1/contact/owner"
+            },
+            {
+              "source": "zoho1/lead/owner"
+            }
+          ],
+          "id": "Owner"
+        },
+        "Company": {
+          "rel": "Company",
+          "sources": [
+            {
+              "source": "hubspot0/contact/company"
+            },
+            {
+              "source": "zoho1/contact/account"
+            }
+          ],
+          "id": "Company"
+        }
+      },
+      "fields": {
+        "COMPANY_NAME": {
+          "label": "Company",
+          "sources": [
+            {
+              "source": "zoho1/lead/COMPANY_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COMPANY_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "COMPANY_NAME",
+          "field": "COMPANY_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "INDUSTRY": {
+          "label": "Industry",
+          "sources": [
+            {
+              "source": "zoho1/lead/INDUSTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/INDUSTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "INDUSTRY",
+          "field": "INDUSTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "SALUTATION": {
+          "label": "Salutation",
+          "sources": [
+            {
+              "source": "zoho1/contact/SALUTATION",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/SALUTATION",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/SALUTATION",
+              "priority": 2000
+            }
+          ],
+          "id": "SALUTATION",
+          "field": "SALUTATION",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ANNUAL_REVENUE": {
+          "label": "Annual Revenue",
+          "sources": [
+            {
+              "source": "zoho1/lead/ANNUAL_REVENUE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ANNUAL_REVENUE",
+              "priority": 2000
+            }
+          ],
+          "id": "ANNUAL_REVENUE",
+          "field": "ANNUAL_REVENUE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "RATING": {
+          "label": "Rating",
+          "sources": [
+            {
+              "source": "zoho1/lead/RATING",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/RATING",
+              "priority": 2000
+            }
+          ],
+          "id": "RATING",
+          "field": "RATING",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "WEBSITE": {
+          "label": "Website",
+          "sources": [
+            {
+              "source": "zoho1/lead/WEBSITE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/WEBSITE",
+              "priority": 2000
+            }
+          ],
+          "id": "WEBSITE",
+          "field": "WEBSITE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "TWITTER_USER": {
+          "label": "Twitter",
+          "sources": [
+            {
+              "source": "zoho1/contact/TWITTER_USER",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/TWITTER_USER",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/TWITTER_USER",
+              "priority": 2000
+            }
+          ],
+          "id": "TWITTER_USER",
+          "field": "TWITTER_USER",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "COUNTRY": {
+          "label": "Country",
+          "sources": [
+            {
+              "source": "zoho1/lead/COUNTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COUNTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "COUNTRY",
+          "field": "COUNTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "STATE": {
+          "label": "State",
+          "sources": [
+            {
+              "source": "zoho1/lead/STATE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/STATE",
+              "priority": 2000
+            }
+          ],
+          "id": "STATE",
+          "field": "STATE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "CITY": {
+          "label": "City",
+          "sources": [
+            {
+              "source": "zoho1/lead/CITY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/CITY",
+              "priority": 2000
+            }
+          ],
+          "id": "CITY",
+          "field": "CITY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ZIP": {
+          "label": "Zip Code",
+          "sources": [
+            {
+              "source": "zoho1/lead/ZIP",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ZIP",
+              "priority": 2000
+            }
+          ],
+          "id": "ZIP",
+          "field": "ZIP",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FAX": {
+          "label": "Fax",
+          "sources": [
+            {
+              "source": "zoho1/contact/FAX",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FAX",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FAX",
+              "priority": 2000
+            }
+          ],
+          "id": "FAX",
+          "field": "FAX",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "PHONE": {
+          "label": "Phone",
+          "sources": [
+            {
+              "source": "zoho1/contact/PHONE",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/PHONE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/PHONE",
+              "priority": 2000
+            }
+          ],
+          "id": "PHONE",
+          "field": "PHONE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "LAST_NAME": {
+          "label": "Last Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/LAST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/LAST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/LAST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "LAST_NAME",
+          "field": "LAST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "EMAIL": {
+          "label": "Email",
+          "sources": [
+            {
+              "source": "zoho1/contact/EMAIL",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/EMAIL",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/EMAIL",
+              "priority": 2000
+            }
+          ],
+          "id": "EMAIL",
+          "field": "EMAIL",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FIRST_NAME": {
+          "label": "First Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/FIRST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FIRST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FIRST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "FIRST_NAME",
+          "field": "FIRST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        }
+      },
+      "id": "572cea3960b55ac113cb77e0",
+      "length": 16,
+      "connectors": "hubspot0, zoho1",
+      "iconClass": "fa-user"
+    },
+    "connectors": "dynamics0 + zoho1"
+  },
+  "DESCRIPTION": {
+    "label": "Description",
+    "sources": [
+      {
+        "source": "dynamics0/contact/DESCRIPTION",
+        "priority": 4200
+      },
+      {
+        "source": "zoho1/contact/DESCRIPTION",
+        "priority": 4000
+      },
+      {
+        "source": "zoho1/lead/DESCRIPTION",
+        "priority": 3000
+      },
+      {
+        "source": "dynamics0/lead/DESCRIPTION",
+        "priority": 3000
+      }
+    ],
+    "id": "DESCRIPTION",
+    "field": "DESCRIPTION",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    },
+    "mapping": {
+      "updatedAt": "2016-05-06T19:02:17.000Z",
+      "_customer": "572a08f7c0e46d0503de7cdc",
+      "type": "Contact",
+      "title": "Contact Mapping",
+      "priority": 3,
+      "status": {
+        "updatedAt": "2016-05-06T19:02:17.754Z",
+        "title": "Active",
+        "id": "active"
+      },
+      "rels": {
+        "Owner": {
+          "rel": "Owner",
+          "sources": [
+            {
+              "source": "hubspot0/contact/owner"
+            },
+            {
+              "source": "zoho1/contact/owner"
+            },
+            {
+              "source": "zoho1/lead/owner"
+            }
+          ],
+          "id": "Owner"
+        },
+        "Company": {
+          "rel": "Company",
+          "sources": [
+            {
+              "source": "hubspot0/contact/company"
+            },
+            {
+              "source": "zoho1/contact/account"
+            }
+          ],
+          "id": "Company"
+        }
+      },
+      "fields": {
+        "COMPANY_NAME": {
+          "label": "Company",
+          "sources": [
+            {
+              "source": "zoho1/lead/COMPANY_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COMPANY_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "COMPANY_NAME",
+          "field": "COMPANY_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "INDUSTRY": {
+          "label": "Industry",
+          "sources": [
+            {
+              "source": "zoho1/lead/INDUSTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/INDUSTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "INDUSTRY",
+          "field": "INDUSTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "SALUTATION": {
+          "label": "Salutation",
+          "sources": [
+            {
+              "source": "zoho1/contact/SALUTATION",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/SALUTATION",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/SALUTATION",
+              "priority": 2000
+            }
+          ],
+          "id": "SALUTATION",
+          "field": "SALUTATION",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ANNUAL_REVENUE": {
+          "label": "Annual Revenue",
+          "sources": [
+            {
+              "source": "zoho1/lead/ANNUAL_REVENUE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ANNUAL_REVENUE",
+              "priority": 2000
+            }
+          ],
+          "id": "ANNUAL_REVENUE",
+          "field": "ANNUAL_REVENUE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "RATING": {
+          "label": "Rating",
+          "sources": [
+            {
+              "source": "zoho1/lead/RATING",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/RATING",
+              "priority": 2000
+            }
+          ],
+          "id": "RATING",
+          "field": "RATING",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "WEBSITE": {
+          "label": "Website",
+          "sources": [
+            {
+              "source": "zoho1/lead/WEBSITE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/WEBSITE",
+              "priority": 2000
+            }
+          ],
+          "id": "WEBSITE",
+          "field": "WEBSITE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "TWITTER_USER": {
+          "label": "Twitter",
+          "sources": [
+            {
+              "source": "zoho1/contact/TWITTER_USER",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/TWITTER_USER",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/TWITTER_USER",
+              "priority": 2000
+            }
+          ],
+          "id": "TWITTER_USER",
+          "field": "TWITTER_USER",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "COUNTRY": {
+          "label": "Country",
+          "sources": [
+            {
+              "source": "zoho1/lead/COUNTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COUNTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "COUNTRY",
+          "field": "COUNTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "STATE": {
+          "label": "State",
+          "sources": [
+            {
+              "source": "zoho1/lead/STATE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/STATE",
+              "priority": 2000
+            }
+          ],
+          "id": "STATE",
+          "field": "STATE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "CITY": {
+          "label": "City",
+          "sources": [
+            {
+              "source": "zoho1/lead/CITY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/CITY",
+              "priority": 2000
+            }
+          ],
+          "id": "CITY",
+          "field": "CITY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ZIP": {
+          "label": "Zip Code",
+          "sources": [
+            {
+              "source": "zoho1/lead/ZIP",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ZIP",
+              "priority": 2000
+            }
+          ],
+          "id": "ZIP",
+          "field": "ZIP",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FAX": {
+          "label": "Fax",
+          "sources": [
+            {
+              "source": "zoho1/contact/FAX",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FAX",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FAX",
+              "priority": 2000
+            }
+          ],
+          "id": "FAX",
+          "field": "FAX",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "PHONE": {
+          "label": "Phone",
+          "sources": [
+            {
+              "source": "zoho1/contact/PHONE",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/PHONE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/PHONE",
+              "priority": 2000
+            }
+          ],
+          "id": "PHONE",
+          "field": "PHONE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "LAST_NAME": {
+          "label": "Last Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/LAST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/LAST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/LAST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "LAST_NAME",
+          "field": "LAST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "EMAIL": {
+          "label": "Email",
+          "sources": [
+            {
+              "source": "zoho1/contact/EMAIL",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/EMAIL",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/EMAIL",
+              "priority": 2000
+            }
+          ],
+          "id": "EMAIL",
+          "field": "EMAIL",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FIRST_NAME": {
+          "label": "First Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/FIRST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FIRST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FIRST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "FIRST_NAME",
+          "field": "FIRST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        }
+      },
+      "id": "572cea3960b55ac113cb77e0",
+      "length": 16,
+      "connectors": "hubspot0, zoho1",
+      "iconClass": "fa-user"
+    },
+    "connectors": "dynamics0 + zoho1"
+  },
+  "MODIFIED_BY": {
+    "label": "Modified By",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/lead/MODIFIED_BY"
+      }
+    ]
+  },
+  "CREATED_BY": {
+    "label": "Created By",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/contact/CREATED_BY"
+      },
+      {
+        "source": "zoho1/lead/CREATED_BY"
+      }
+    ]
+  },
+  "JOB_TITLE": {
+    "label": "Job Title",
+    "sources": [
+      {
+        "source": "dynamics0/contact/JOB_TITLE",
+        "priority": 4200
+      },
+      {
+        "source": "dynamics0/lead/JOB_TITLE",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/JOB_TITLE",
+        "priority": 2000
+      }
+    ],
+    "id": "JOB_TITLE",
+    "field": "JOB_TITLE",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    },
+    "mapping": {
+      "updatedAt": "2016-05-06T19:02:17.000Z",
+      "_customer": "572a08f7c0e46d0503de7cdc",
+      "type": "Contact",
+      "title": "Contact Mapping",
+      "priority": 3,
+      "status": {
+        "updatedAt": "2016-05-06T19:02:17.754Z",
+        "title": "Active",
+        "id": "active"
+      },
+      "rels": {
+        "Owner": {
+          "rel": "Owner",
+          "sources": [
+            {
+              "source": "hubspot0/contact/owner"
+            },
+            {
+              "source": "zoho1/contact/owner"
+            },
+            {
+              "source": "zoho1/lead/owner"
+            }
+          ],
+          "id": "Owner"
+        },
+        "Company": {
+          "rel": "Company",
+          "sources": [
+            {
+              "source": "hubspot0/contact/company"
+            },
+            {
+              "source": "zoho1/contact/account"
+            }
+          ],
+          "id": "Company"
+        }
+      },
+      "fields": {
+        "COMPANY_NAME": {
+          "label": "Company",
+          "sources": [
+            {
+              "source": "zoho1/lead/COMPANY_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COMPANY_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "COMPANY_NAME",
+          "field": "COMPANY_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "INDUSTRY": {
+          "label": "Industry",
+          "sources": [
+            {
+              "source": "zoho1/lead/INDUSTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/INDUSTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "INDUSTRY",
+          "field": "INDUSTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "SALUTATION": {
+          "label": "Salutation",
+          "sources": [
+            {
+              "source": "zoho1/contact/SALUTATION",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/SALUTATION",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/SALUTATION",
+              "priority": 2000
+            }
+          ],
+          "id": "SALUTATION",
+          "field": "SALUTATION",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ANNUAL_REVENUE": {
+          "label": "Annual Revenue",
+          "sources": [
+            {
+              "source": "zoho1/lead/ANNUAL_REVENUE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ANNUAL_REVENUE",
+              "priority": 2000
+            }
+          ],
+          "id": "ANNUAL_REVENUE",
+          "field": "ANNUAL_REVENUE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "RATING": {
+          "label": "Rating",
+          "sources": [
+            {
+              "source": "zoho1/lead/RATING",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/RATING",
+              "priority": 2000
+            }
+          ],
+          "id": "RATING",
+          "field": "RATING",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "WEBSITE": {
+          "label": "Website",
+          "sources": [
+            {
+              "source": "zoho1/lead/WEBSITE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/WEBSITE",
+              "priority": 2000
+            }
+          ],
+          "id": "WEBSITE",
+          "field": "WEBSITE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "TWITTER_USER": {
+          "label": "Twitter",
+          "sources": [
+            {
+              "source": "zoho1/contact/TWITTER_USER",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/TWITTER_USER",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/TWITTER_USER",
+              "priority": 2000
+            }
+          ],
+          "id": "TWITTER_USER",
+          "field": "TWITTER_USER",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "COUNTRY": {
+          "label": "Country",
+          "sources": [
+            {
+              "source": "zoho1/lead/COUNTRY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/COUNTRY",
+              "priority": 2000
+            }
+          ],
+          "id": "COUNTRY",
+          "field": "COUNTRY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "STATE": {
+          "label": "State",
+          "sources": [
+            {
+              "source": "zoho1/lead/STATE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/STATE",
+              "priority": 2000
+            }
+          ],
+          "id": "STATE",
+          "field": "STATE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "CITY": {
+          "label": "City",
+          "sources": [
+            {
+              "source": "zoho1/lead/CITY",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/CITY",
+              "priority": 2000
+            }
+          ],
+          "id": "CITY",
+          "field": "CITY",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "ZIP": {
+          "label": "Zip Code",
+          "sources": [
+            {
+              "source": "zoho1/lead/ZIP",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/ZIP",
+              "priority": 2000
+            }
+          ],
+          "id": "ZIP",
+          "field": "ZIP",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FAX": {
+          "label": "Fax",
+          "sources": [
+            {
+              "source": "zoho1/contact/FAX",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FAX",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FAX",
+              "priority": 2000
+            }
+          ],
+          "id": "FAX",
+          "field": "FAX",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "PHONE": {
+          "label": "Phone",
+          "sources": [
+            {
+              "source": "zoho1/contact/PHONE",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/PHONE",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/PHONE",
+              "priority": 2000
+            }
+          ],
+          "id": "PHONE",
+          "field": "PHONE",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "LAST_NAME": {
+          "label": "Last Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/LAST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/LAST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/LAST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "LAST_NAME",
+          "field": "LAST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "EMAIL": {
+          "label": "Email",
+          "sources": [
+            {
+              "source": "zoho1/contact/EMAIL",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/EMAIL",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/EMAIL",
+              "priority": 2000
+            }
+          ],
+          "id": "EMAIL",
+          "field": "EMAIL",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        },
+        "FIRST_NAME": {
+          "label": "First Name",
+          "sources": [
+            {
+              "source": "zoho1/contact/FIRST_NAME",
+              "priority": 4000
+            },
+            {
+              "source": "zoho1/lead/FIRST_NAME",
+              "priority": 3000
+            },
+            {
+              "source": "hubspot0/contact/FIRST_NAME",
+              "priority": 2000
+            }
+          ],
+          "id": "FIRST_NAME",
+          "field": "FIRST_NAME",
+          "filter": {
+            "type": "or",
+            "criteria": [
+              {
+                "agent": "hubspot0",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              },
+              {
+                "agent": "zoho1",
+                "dataType": "*",
+                "field": "*",
+                "op": "not:empty"
+              }
+            ]
+          }
+        }
+      },
+      "id": "572cea3960b55ac113cb77e0",
+      "length": 16,
+      "connectors": "hubspot0, zoho1",
+      "iconClass": "fa-user"
+    },
+    "connectors": "dynamics0 + hubspot0"
+  },
+  "COMPANY_NAME": {
+    "label": "Company",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/lead/COMPANY_NAME"
+      },
+      {
+        "source": "hubspot0/contact/COMPANY_NAME"
+      },
+      {
+        "source": "dynamics0/lead/COMPANY_NAME"
+      }
+    ]
+  },
+  "INDUSTRY": {
+    "label": "Industry",
+    "sources": [
+      {
+        "source": "zoho1/lead/INDUSTRY",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/INDUSTRY",
+        "priority": 2000
+      }
+    ],
+    "id": "INDUSTRY",
+    "field": "INDUSTRY",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "SALUTATION": {
+    "label": "Salutation",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "dynamics0/contact/SALUTATION"
+      },
+      {
+        "source": "dynamics0/lead/SALUTATION"
+      },
+      {
+        "source": "zoho1/contact/SALUTATION"
+      },
+      {
+        "source": "zoho1/lead/SALUTATION"
+      },
+      {
+        "source": "hubspot0/contact/SALUTATION"
+      }
+    ]
+  },
+  "ANNUAL_REVENUE": {
+    "label": "Annual Revenue",
+    "sources": [
+      {
+        "source": "zoho1/lead/ANNUAL_REVENUE",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/ANNUAL_REVENUE",
+        "priority": 2000
+      }
+    ],
+    "id": "ANNUAL_REVENUE",
+    "field": "ANNUAL_REVENUE",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "RATING": {
+    "label": "Rating",
+    "sources": [
+      {
+        "source": "zoho1/lead/RATING",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/RATING",
+        "priority": 2000
+      }
+    ],
+    "id": "RATING",
+    "field": "RATING",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "WEBSITE": {
+    "label": "Website",
+    "sources": [
+      {
+        "source": "zoho1/lead/WEBSITE",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/WEBSITE",
+        "priority": 2000
+      }
+    ],
+    "id": "WEBSITE",
+    "field": "WEBSITE",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "TWITTER_USER": {
+    "label": "Twitter",
+    "sources": [
+      {
+        "source": "zoho1/contact/TWITTER_USER",
+        "priority": 4000
+      },
+      {
+        "source": "zoho1/lead/TWITTER_USER",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/TWITTER_USER",
+        "priority": 2000
+      }
+    ],
+    "id": "TWITTER_USER",
+    "field": "TWITTER_USER",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "COUNTRY": {
+    "label": "Country",
+    "sources": [
+      {
+        "source": "zoho1/lead/COUNTRY",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/COUNTRY",
+        "priority": 2000
+      }
+    ],
+    "id": "COUNTRY",
+    "field": "COUNTRY",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "STATE": {
+    "label": "State",
+    "sources": [
+      {
+        "source": "zoho1/lead/STATE",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/STATE",
+        "priority": 2000
+      }
+    ],
+    "id": "STATE",
+    "field": "STATE",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "CITY": {
+    "label": "City",
+    "sources": [
+      {
+        "source": "zoho1/lead/CITY",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/CITY",
+        "priority": 2000
+      }
+    ],
+    "id": "CITY",
+    "field": "CITY",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "ZIP": {
+    "label": "Zip Code",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/lead/ZIP"
+      },
+      {
+        "source": "hubspot0/contact/ZIP"
+      },
+      {
+        "source": "dynamics0/contact/ADDRESS1_POSTAL_CODE"
+      }
+    ]
+  },
+  "FAX": {
+    "label": "Fax",
+    "sources": [
+      {
+        "source": "dynamics0/contact/FAX",
+        "priority": 4200
+      },
+      {
+        "source": "zoho1/contact/FAX",
+        "priority": 4000
+      },
+      {
+        "source": "zoho1/lead/FAX",
+        "priority": 3000
+      },
+      {
+        "source": "dynamics0/lead/FAX",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/FAX",
+        "priority": 2000
+      }
+    ],
+    "id": "FAX",
+    "field": "FAX",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "PHONE": {
+    "label": "Phone",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "hubspot0/contact/PHONE"
+      },
+      {
+        "source": "zoho1/contact/PHONE"
+      },
+      {
+        "source": "zoho1/lead/PHONE"
+      }
+    ]
+  },
+  "LAST_NAME": {
+    "label": "Last Name",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/contact/LAST_NAME"
+      },
+      {
+        "source": "zoho1/lead/LAST_NAME"
+      },
+      {
+        "source": "hubspot0/contact/LAST_NAME"
+      },
+      {
+        "source": "dynamics0/lead/LAST_NAME"
+      }
+    ]
+  },
+  "EMAIL": {
+    "label": "Email",
+    "sources": [
+      {
+        "source": "dynamics0/contact/EMAIL",
+        "priority": 4200
+      },
+      {
+        "source": "zoho1/contact/EMAIL",
+        "priority": 4000
+      },
+      {
+        "source": "zoho1/lead/EMAIL",
+        "priority": 3000
+      },
+      {
+        "source": "dynamics0/lead/EMAIL",
+        "priority": 3000
+      },
+      {
+        "source": "hubspot0/contact/EMAIL",
+        "priority": 2000
+      }
+    ],
+    "id": "EMAIL",
+    "field": "EMAIL",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        },
+        {
+          "agent": "dynamics0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty"
+        }
+      ]
+    }
+  },
+  "FIRST_NAME": {
+    "label": "First Name",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "zoho1",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+    "sources": [
+      {
+        "source": "zoho1/contact/FIRST_NAME"
+      },
+      {
+        "source": "zoho1/lead/FIRST_NAME"
+      },
+      {
+        "source": "hubspot0/contact/FIRST_NAME"
+      },
+      {
+        "source": "dynamics0/lead/FIRST_NAME"
+      }
+    ]
+  }
+}

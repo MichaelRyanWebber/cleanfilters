@@ -1,0 +1,68 @@
+"EMAIL": {
+    "label": "Email",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "zoho0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    },
+
+
+    then
+
+    "EMAIL": {
+    "label": "Email",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "zoho0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "hubspot0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        }
+      ]
+    }
+
+      "EMAIL": {
+    "label": "Email",
+    "filter": {
+      "type": "or",
+      "criteria": [
+        {
+          "agent": "salesforce0",
+          "dataType": "*",
+          "field": "*",
+          "op": "not:empty",
+          "value": ""
+        },
+        {
+          "agent": "hubspot0",
+          "dataType": "",
+          "field": "",
+          "op": "",
+          "value": ""
+        }
+      ]
+    }
